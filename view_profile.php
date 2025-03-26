@@ -5,20 +5,21 @@
     $name="";
     $email="";
     $mobile="";
-    $query ="select * from admin where email = '$_SESSION[email]'";
+    $address="";
+    $query ="select * from employee where email = '$_SESSION[email]'";
     $query_run=mysqli_query($connection,$query);
     while($row = mysqli_fetch_assoc($query_run)){
     	$name=$row['name'];
     	$email=$row['email'];
     	$mobile=$row['mobile'];
-    	
+    	$address=$row['address'];
     }                
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	
-	<title>Admin Dashboard</title>
+	<title>Employee Dashboard</title>
 	 <title>Profile Dropdown</title>
 	 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -40,7 +41,7 @@
 	<nav class="navbar navbar- expand-1g navbar-dark bg-dark">
 		<div class="container-fluid">
 			<div class="navbar-header">
-               <a class="navbar-brand" href="admin_dashboard.php">Bank Management System(BMS)</a><br><br>
+               <a class="navbar-brand" href="employee_dashboard.php">Bank Management System(BMS)</a><br><br>
            </div>
            <font style="color:white"><span><strong>Welcome:<?php echo $_SESSION['name'];?></strong></span></font><br><br>
            <font style="color:white"><span><strong>Email:<?php echo $_SESSION['email'];?></strong></span></font>
@@ -75,6 +76,10 @@
 	    			<label>Mobile:</label>
 	    			<input type="text" class="form-control" value="<?php echo $mobile;?>"disabled>
 	            </div>
+	            <div class="form-group">
+	    			<label>Address:</label>
+	    			<textarea rows="3" cols="40" disabled="" class="form-control"><?php echo $address;?></textarea>
+	    	    </div>
 	        </form>
 	    </div>
 	    <div class="col-md-4"></div>

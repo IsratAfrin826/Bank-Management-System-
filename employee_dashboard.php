@@ -1,19 +1,5 @@
 <?php
      session_start();
-    $connection=mysqli_connect("localhost","root","");
-    $db=mysqli_select_db($connection,"bankmanagementsystem");
-    $name="";
-    $email="";
-    $mobile="";
-    $address="";
-    $query ="select * from employee where email = '$_SESSION[email]'";
-    $query_run=mysqli_query($connection,$query);
-    while($row = mysqli_fetch_assoc($query_run)){
-    	$name=$row['name'];
-    	$email=$row['email'];
-    	$mobile=$row['mobile'];
-    	$address=$row['address'];
-    }                
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +27,7 @@
 	<nav class="navbar navbar- expand-1g navbar-dark bg-dark">
 		<div class="container-fluid">
 			<div class="navbar-header">
-               <a class="navbar-brand" href="employee_dashboard.php">Bank Management System(BMS)</a><br><br>
+               <a class="navbar-brand" href="index.php">Bank Management System(BMS)</a><br><br>
            </div>
            <font style="color:white"><span><strong>Welcome:<?php echo $_SESSION['name'];?></strong></span></font><br><br>
            <font style="color:white"><span><strong>Email:<?php echo $_SESSION['email'];?></strong></span></font>
@@ -50,7 +36,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Profile
                 </a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="view_profile.php">View Profile</a>
                     <a class="dropdown-item" href="edit_profile.php">Edit Profile</a>
                     <a class="dropdown-item" href="change_password.php">Change Password</a>
@@ -61,29 +47,9 @@
  </nav><br>
  <span><marquee>This is Bank Management System. Bank opens at 10:00 AM and close at 5:00 PM </marquee></span><br><br>
 	<div class="row">
-		<div class="col-md-4"></div>
-	    <div class="col-md-4">
-	    	<form action="update.php" method="POST">
-	    		<div class="form-group">
-	    		 <level>Name:</level>
-	    		 <input type="text" class="form-control" value="<?php echo $name;?>"name="name">
-	    		</div>
-	    		<div class="form-group">
-	    		 <level>Email:</level>
-	    		 <input type="text" class="form-control" value="<?php echo $email;?>"name="email">
-	    		</div>
-	    		<div class="form-group">
-	    		 <level>Mobile:</level>
-	    		 <input type="text" class="form-control" value="<?php echo $mobile;?>"name="mobile">
-	    		</div>
-	    		<div class="form-group">
-	    		 <level>Address:</level>
-	    		 <textarea rows="3" cols="40" name="address" class="form-control"><?php echo $address;?></textarea>
-                </div>
-                <button type="submit" name="update" class="btn btn-primary">Update</button>
-            </form>
-	    <div class="col-md-4">
-	</div>
+		<div class="col-md-3">
+			
+		</div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

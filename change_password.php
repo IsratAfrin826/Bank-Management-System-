@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	
-	<title>Admin Dashboard</title>
+	<title>Employee Dashboard</title>
 	 <title>Profile Dropdown</title>
 	 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	
@@ -24,9 +24,9 @@
 			<div class="navbar-header">
                <a class="navbar-brand" href="index.php">Bank Management System(BMS)</a><br><br>
            </div>
-			<ul class ="nav navbar-nav navbar-right">
+			<ul class ="navbar-nav navbar-right">
 				<li class="nav-item">
-					<a class="nav-link"href="admin/index.php">Admin Login</a>
+					<a class="nav-link"href="index.php">Admin Login</a>
 				</li><br>
 				<li class="nav-item">
 					<a class="nav-link"href="index.php">Employee Login</a>
@@ -58,41 +58,30 @@
 			</ul>
 		</div>
 	    <div class ="col-md-8" id="main_content">
-	    	<center><h3>Employee Login Form</h3></center>
-	    	<form action="" method="post">
+	    	<center><h3>Employee Registration Form</h3></center>
+	    	<form action="register.php" method="post">
+	    		<div class="form-group">
+	    			<level for="name">Full Name:</level>
+	    			<input type="text"name="name"class="form-control"required>
+	    		</div>
 	    		<div class="form-group">
 	    			<level for="name">Email ID:</level>
 	    			<input type="text"name="email"class="form-control"required>
 	    		</div>
 	    		<div class="form-group">
 	    			<level for="name">Password:</level>
-	    			<input type="password"name="password"class="form-control"required>
+	    			<input type="Password"name="Password"class="form-control"required>
 	    		</div>
-	    		<button type="submit" name="login" class="btn-primary">Login</button>
+	    		<div class="form-group">
+	    		    <level for="name">Mobile Number:</level>
+	    			<input type="text"name="mobile"class="form-control"required>
+	    		</div>
+	    		<div class="form-group">
+	    		<level for="name">Address:</level>
+	    		<textarea rows="3" cols="40" class="form-control" name="address"></textarea>
+	    		</div>
+	    		<button type="submit"class=" btn btn-primary">Register</button>
 	    	</form>
-	    	<?php
-	    	    session_start();
-	    	    if(isset($_POST['login'])){
-	    	    	$connection=mysqli_connect("localhost","root","");
-                    $db=mysqli_select_db($connection,"bankmanagementsystem");
-                    $query ="select * from employee where email = '$_POST[email]'";
-                    $query_run=mysqli_query($connection,$query);
-                    while($row = mysqli_fetch_assoc($query_run)){
-                    	if($row['email'] == $_POST['email']){
-                    	    if($row['password'] == $_POST['password']){
-                    	    	$_SESSION['name'] = $row['name'];
-                    	    	$_SESSION['email'] = $row['email'];
-                    	    	header("Location:employee_dashboard.php");
-                    	    }
-                    	    else{
-                    		    ?>
-                    		    <br><br><center><span class ="alert-danger">Wrong Password</span></center>
-                    		    <?php
-                    	    }
-                    	}
-                    }
-	    	    }
-	    	?>
         </div>
 	</div>
 </body>
